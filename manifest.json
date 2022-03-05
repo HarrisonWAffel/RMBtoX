@@ -1,0 +1,25 @@
+{
+    "name": "RMB converter",
+    "description": "An extension for automatically converting RMB to various other currencies.",
+    "version": "0.0.0.1",
+    "manifest_version": 2,
+    "permissions": [
+      "activeTab",
+      "storage"
+    ],
+    "background": {
+      "service_worker": "content.js"
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "https://*.buff.163.com/*"
+        ],
+        "run_at": "document_idle",
+        "js": ["content.js"]
+      }
+    ],
+    "browser_action": {
+        "default_popup": "popup/popup.html"
+    }
+}

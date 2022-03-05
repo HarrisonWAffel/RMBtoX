@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <style>
+            body {
+                width: 425px;
+                height: fit-content;
+            }
+            button {
+            }
+            .header {
+                /*display: flex;*/
+            }
+            .inputAPIKey {
+                /*background-color: black;*/
+                /*display: flex;*/
+            }
+            .currencySelector {
+                /*background-color: yellow;*/
+                /*display: flex;*/
+
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>RMBtoX</h1>
+            <h2>A Buff.163 extension to automatically display RMB/CNY values converted to other currencies</h2>
+        </div>
+        <div id="noApiKey" class="error">
+            <h2>Please generate a free API key from <a href="https://free.currencyconverterapi.com/">https://free.currencyconverterapi.com/</a></h2>
+            <p>This API key keeps the extension completely free, all you need to do is verify your email address.</p>
+        </div>
+        <div class="inputAPIKey">
+            <details id="detail">
+                <summary>Enter API Key</summary>
+                <br/>
+                <input type="password" id="api_key"/>
+                <br/><br/>
+                <button id="sendmessageid">Save API Key</button>
+                <br/><br/>
+                <button id="clearApiKey">Clear API Key</button>
+                <br/><br/>
+                <button id="update" >Update Currency Exchange Rates </button>
+            </details>
+        </div>
+        <br/>
+        <hr/>
+        <div hidden="true" id="complete">
+            <h3>Extension is Ready to use!</h3>
+        </div>
+        <div class="currencySelector">
+            <h2 style="display: inline">Current Currency: </h2>
+            <select  id="currency" style="font-size: 16px">
+                <option>USD</option>
+                <option>GBP</option>
+                <option>EUR</option>
+                <option>RUB</option>
+            </select>
+            <button value="save" id="submitCurrency"  style="font-size: 16px">Update</button>
+
+        </div>
+        <script src="popup.js"></script>
+    </body>
+</html>

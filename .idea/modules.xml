@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/rmbToUsd.iml" filepath="$PROJECT_DIR$/.idea/rmbToUsd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/RMBtoX.iml" filepath="$PROJECT_DIR$/.idea/RMBtoX.iml" />
     </modules>
   </component>
 </project>

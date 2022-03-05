@@ -31,6 +31,9 @@ async function AppendConvertedValue() {
     for (let i =0; i < eles.length; i++) {
         let popup = false;
         let price = cleanPrice(eles[i].innerHTML)
+        if (!eles[i].innerHTML.includes("¥")) {
+            continue
+        }
         let cur = document.getElementsByClassName('f_Strong')[i];
         let p = document.getElementsByClassName('f_Strong')[i].parentElement;
         if (cur.parentElement !== null) {

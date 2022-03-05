@@ -1,6 +1,6 @@
 {
-    "name": "RMB converter",
-    "description": "An extension for automatically converting RMB to various other currencies.",
+    "name": "Buff Dual Currency View",
+    "description": "A buff.163 extension for displaying converted currencies next to an item's RMB value. While buff.163 can display various currencies, all transactions are made in RMB. Because of this it can be valuable to have two currencies displayed for each item",
     "version": "0.0.0.1",
     "manifest_version": 2,
     "permissions": [

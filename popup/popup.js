@@ -4,12 +4,10 @@ if (sendMessageId) {
   sendMessageId.onclick = function(e) {
     let k = document.getElementById("api_key")
     chrome.storage.local.set({apiKey: k.value}, function() {
-      let notification = document.getElementById("noApiKey")
-      notification.hidden = true;
-      let detail = document.getElementById("detail");
-      detail.removeAttribute("open");
-      let congrats = document.getElementById("complete")
-      congrats.hidden = false;
+      document.getElementById("noApiKey").hidden = true;
+      document.getElementById("detail").removeAttribute("open");
+      document.getElementById("complete").hidden = false;
+
     });
   };
 }
@@ -46,7 +44,7 @@ if (submitCurrency) {
                 .then(res => res.json())
                 .then(data => {
                   // save to local storage
-                  chrome.storage.local.set({storageKey: data["CNY_"+currency.value]}, function() {});
+                  chrome.storage.local.set({conversionValue: data["CNY_"+currency.value]}, function() {});
                   chrome.tabs.reload();
               }).catch(e => alert(e))
           });
@@ -68,7 +66,7 @@ if (update) {
                 .then(res => res.json())
                 .then(data => {
                   // save to local storage
-                  chrome.storage.local.set({storageKey: data["CNY_"+currency.value]}, function() {});
+                  chrome.storage.local.set({conversionValue: data["CNY_"+currency.value]}, function() {});
                   chrome.tabs.reload();
                 }).catch(e => alert(e))
           });

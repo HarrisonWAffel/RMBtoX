@@ -3,45 +3,50 @@
         <meta charset="utf-8" />
         <style>
             body {
-                width: 425px;
+                width: 300px;
                 height: fit-content;
             }
-            button {
-            }
             .header {
-                /*display: flex;*/
+                text-align: center;
             }
-            .inputAPIKey {
-                /*background-color: black;*/
-                /*display: flex;*/
+            .error {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                text-align: center;
+                background-color: white;
             }
-            .currencySelector {
-                /*background-color: yellow;*/
-                /*display: flex;*/
-
+            .link {
+                font-size: 15px;
+                text-align: center;
             }
         </style>
     </head>
     <body>
         <div class="header">
-            <h1>RMBtoX</h1>
-            <h2>A Buff.163 extension to automatically display RMB/CNY values converted to other currencies</h2>
+            <h1>Buff Dual Currency View</h1>
+            <h4>A Buff.163 extension to automatically display RMB/CNY values converted to other currencies</h4>
         </div>
         <div id="noApiKey" class="error">
-            <h2>Please generate a free API key from <a href="https://free.currencyconverterapi.com/">https://free.currencyconverterapi.com/</a></h2>
+            <h2>Buff Dual Currency</h2>
+            <h2>Please generate a free API key from <a class="link" href="https://free.currencyconverterapi.com/">https://free.currencyconverterapi.com/</a></h2>
             <p>This API key keeps the extension completely free, all you need to do is verify your email address.</p>
+            <details id="detail" open>
+                <summary style="display: inline">Enter API Key</summary>
+                <input type="password" id="api_key" style="display: inline; margin-bottom: 1%"/>
+                <br/>
+                <button id="sendmessageid">Save API Key</button>
+            </details>
         </div>
         <div class="inputAPIKey">
             <details id="detail">
-                <summary>Enter API Key</summary>
+                <summary>Edit API Key</summary>
                 <br/>
-                <input type="password" id="api_key"/>
-                <br/><br/>
-                <button id="sendmessageid">Save API Key</button>
+                <button id="update" >Update Currency Exchange Rates </button>
                 <br/><br/>
                 <button id="clearApiKey">Clear API Key</button>
-                <br/><br/>
-                <button id="update" >Update Currency Exchange Rates </button>
             </details>
         </div>
         <br/>
@@ -58,8 +63,9 @@
                 <option>RUB</option>
             </select>
             <button value="save" id="submitCurrency"  style="font-size: 16px">Update</button>
-
         </div>
         <script src="popup.js"></script>
+        <br/>
+        <small><a target="_blank" href="https://icons8.com/icon/lM4JLjwKt24H/dollar-yuan-exchange">Dollar Yuan Exchange</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></small>
     </body>
 </html>

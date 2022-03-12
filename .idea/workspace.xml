@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7614bee-ac06-43cf-bb03-0384a4ace63f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sample1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sample2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sample3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sample4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/rmbToUsd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RMBtoX.iml" afterDir="false" />
+    <list default="true" id="d7614bee-ac06-43cf-bb03-0384a4ace63f" name="Changes" comment="clean up content code, improve pop out window appearance, add icon">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/content.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popup/popup.html" beforeDir="false" afterPath="$PROJECT_DIR$/popup/popup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popup/popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/popup/popup.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +35,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="16.11.1" />
+    <property name="javascript.nodejs.core.library.typings.version" value="16.11.1" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -63,7 +60,20 @@
       <updated>1646412960625</updated>
       <workItem from="1646412961817" duration="21404000" />
       <workItem from="1646493383951" duration="9942000" />
+      <workItem from="1646694810115" duration="1130000" />
+      <workItem from="1646884201605" duration="2358000" />
+      <workItem from="1647039463494" duration="6292000" />
+      <workItem from="1647109102561" duration="1582000" />
+      <workItem from="1647110700538" duration="2480000" />
     </task>
+    <task id="LOCAL-00001" summary="clean up content code, improve pop out window appearance, add icon">
+      <created>1646886398943</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1646886398943</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -79,5 +89,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="clean up content code, improve pop out window appearance, add icon" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean up content code, improve pop out window appearance, add icon" />
   </component>
 </project>

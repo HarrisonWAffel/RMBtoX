@@ -5,6 +5,13 @@ const currencyIcons = {
     "RUB":"₽",
 }
 
+const currencyIndexes = {
+    "USD": 0,
+    "GBP": 1,
+    "EUR": 2,
+    "RUB": 3
+}
+
 // constantly check for new
 // RMB values to be converted.
 setInterval(function() {
@@ -60,7 +67,7 @@ async function AppendConvertedValue(currency) {
                     }
                 }
 
-                btn = buildConvertedCurrency(price, currency)
+                var btn = buildConvertedCurrency(price, currency)
                 if (btn === null) {return}
                 if (!btn.innerHTML.includes("undefined") && btn.innerHTML !== "$0" && !btn.innerHTML.includes("NaN")) { // currency conversion error
                     if (!cur.innerHTML.includes(btn.innerHTML)  // converted currency has already been added
@@ -149,9 +156,10 @@ function getCurrentCurrency() {
 
 function convertRMB(toCurrency, price) {
     return new Promise(resolve => {
-        chrome.storage.local.get(['conversionValue'], function (result) {
-            let res = parseFloat(price) * result.conversionValue
-            resolve(Math.round((res + Number.EPSILON) * 100) / 100);
+        chrome.storage.local.get(['conversionValues'], function (result) {
+            let res = parseFloat(price) * result.conversionValues[currencyIndexes[toCurrency]]
+            let convertedFloat = Math.round((res + Number.EPSILON) * 100) / 100
+            resolve(convertedFloat);
         })
     });
 }

@@ -33,23 +33,29 @@
             <h2>Buff Dual Currency</h2>
             <h2>Please generate a free API key from <a class="link" href="https://free.currencyconverterapi.com/">https://free.currencyconverterapi.com/</a></h2>
             <p>This API key keeps the extension completely free, all you need to do is verify your email address.</p>
-            <details id="detail" open>
+            <details open>
                 <summary style="display: inline">Enter API Key</summary>
                 <input type="password" id="api_key" style="display: inline; margin-bottom: 1%"/>
                 <br/>
-                <button id="sendmessageid">Save API Key</button>
+                <button id="submitAPIKey">Save API Key</button>
             </details>
         </div>
-        <div class="inputAPIKey">
-            <details id="detail">
+        <div>
+            <details>
                 <summary>Edit API Key</summary>
                 <br/>
                 <button id="update" >Update Currency Exchange Rates </button>
                 <br/><br/>
                 <button id="clearApiKey">Clear API Key</button>
             </details>
+            <br/>
+            <details id="calculator">
+                <summary >Conversion Calculator</summary>
+                <br/>
+                <input style="width: 100%; display: block;margin-left: auto;margin-right: auto;" id="calculatorInput" type="text"/>
+                <h1 style="text-align: left;" id="calculatorOutput"/>
+            </details>
         </div>
-        <br/>
         <hr/>
         <div hidden="true" id="complete">
             <h3>Extension is Ready to use!</h3>

@@ -3,11 +3,11 @@ const submitAPIKey = document.getElementById("submitAPIKey");
 if (submitAPIKey) {
   submitAPIKey.onclick = function(e) {
     let k = document.getElementById("api_key")
-    chrome.storage.local.set({apiKey: k.value}, async function() {
+    updateExchangeRates(k.value);
+    chrome.storage.local.set({apiKey: k.value}, function() {
       document.getElementById("noApiKey").hidden = true;
       document.getElementById("detail").removeAttribute("open");
       document.getElementById("complete").hidden = false;
-      await updateExchangeRates(k.value);
     });
   };
 }
@@ -38,13 +38,6 @@ const currencyIcons = {
   "EUR":"€",
   "GBP":"£",
   "RUB":"₽",
-}
-
-const currencyIndexes = {
-  "USD": 0,
-  "GBP": 1,
-  "EUR": 2,
-  "RUB": 3
 }
 
 // conversion calculator
@@ -105,7 +98,7 @@ const update = document.getElementById("update")
 if (update) {
   update.onclick = async function () {
     chrome.storage.local.get(['apiKey'], async function(key) {
-      await updateExchangeRates(key)
+      await updateExchangeRates(key.apiKey);
     });
   }
 }
@@ -114,12 +107,15 @@ if (update) {
 async function updateExchangeRates(key) {
   let conversionRates = [];
   for (let i =0; i < currencies.length; i++) {
-    let url = "https://free.currconv.com/api/v7/convert?q="+currencies[i]+"_CNY,CNY_"+currencies[i]+"&compact=ultra&apiKey="+key.apiKey;
+    let url = "https://free.currconv.com/api/v7/convert?q="+currencies[i]+"_CNY,CNY_"+currencies[i]+"&compact=ultra&apiKey="+key;
     let result = await fetch(url)
         .then(res => {
           if (!res.ok) {
-            throw new Error("API is down, please try again later.")
-            return
+            if (res.status === 400) {
+              throw new Error("you have supplied invalid API credentials.");
+            } else {
+              throw new Error("Free exchange rate API is down, please try again later.");
+            }
           }
           return res.json()})
         .then(data => {

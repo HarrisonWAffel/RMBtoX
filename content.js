@@ -48,7 +48,6 @@ async function AppendConvertedValue(currency) {
             }
         }
 
-
         convertRMB(currency.currency, price)
             .then(price => {
                 // handle all elements that typically show up in lists and menus, including popups
@@ -57,11 +56,16 @@ async function AppendConvertedValue(currency) {
                         let li = p.parentElement;
                         let h3 = li.getElementsByTagName("h3");
                         if (h3.length > 0) {
-                            li.getElementsByTagName("h3")[0].style.margin = "8px 12px 1px" // reduce spacing of elements to maintain given card size
+                            if (!popup) {
+                                li.getElementsByTagName("h3")[0].style.margin = "8px 12px 1px" // reduce spacing of elements to maintain given card size
+                            }
                         }
                         if (li.tagName !== "LI" && li.tagName === "DIV") {
                             if (!popup) {
-                                price = cleanPrice(document.getElementById("navbar-cash-amount").innerHTML)
+                                let cashAmount = document.getElementById("navbar-cash-amount");
+                                if (cashAmount !== null) {
+                                    price = cleanPrice(document.getElementById("navbar-cash-amount").innerHTML)
+                                }
                             }
                         }
                     }
@@ -83,7 +87,7 @@ async function AppendConvertedValue(currency) {
                             }
                         }
                 }
-            }).catch(e => alert(e))
+            }).catch(e => console.log(e))
         }
 
     // handle inventory summary if present
@@ -105,20 +109,26 @@ async function AppendConvertedValue(currency) {
 
 
     // handle relative goods if present
+    // for CSGO, 'relative goods' is the bar which
+    // allows you to specify different tiers of float
+    // when buying an item (FN, MW, FT, BS)
     let rg = document.getElementsByClassName("relative-goods")
     if (rg.length > 0) {
         for (let i =0; i < rg[0].children.length; i++) {
             let cur = rg[0].children[i].innerHTML
-            let price = cleanPrice(cur.split("¥")[1])
-            convertRMB(currency.currency, price)
-                .then(price => {
-                    let p = buildConvertedCurrency(price, currency)
-                    if (!cur.includes(p.innerHTML)) {
-                        let x = rg[0].children[i]
-                        let left = x.innerHTML.split("¥")[0]
-                        rg[0].children[i].innerHTML = left + p.innerHTML
-                    }
-                })
+            let split = cur.split("¥")[1]
+            if (split !== null && split !== undefined) {
+                let price = cleanPrice(split)
+                convertRMB(currency.currency, price)
+                    .then(price => {
+                        let p = buildConvertedCurrency(price, currency)
+                        if (!cur.includes(p.innerHTML)) {
+                            let x = rg[0].children[i]
+                            let left = x.innerHTML.split("¥")[0]
+                            rg[0].children[i].innerHTML = left + p.innerHTML
+                        }
+                    })
+            }
         }
     }
 }
